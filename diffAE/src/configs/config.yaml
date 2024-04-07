@@ -1,0 +1,38 @@
+debug: False
+
+models_shared: &models_shared
+  dim: 32
+  init_dim: null
+  out_dim: null
+  dim_mults:
+    - 1
+    - 2
+    - 4
+  channels: 1
+  resnet_block_groups: 4
+
+diff_ae:
+  <<: *models_shared
+  out_dim: 256
+
+unet:
+  <<: *models_shared
+  time_dim_mult: 8
+  z_sem_dim: 256
+  self_condition: False
+
+train:
+  epochs: 20
+  batch_size: 128
+  lr: 1e-3
+  model_ema_steps: 10
+  model_ema_decay: 0.995
+
+data:
+  path: "./data"
+
+scheduler:
+  num_train_timesteps: 1000
+  beta_start: 0.0001
+  beta_end: 0.02
+  beta_schedule: "squaredcos_cap_v2"

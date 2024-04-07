@@ -1,0 +1,8 @@
+torch
+diffusers
+einops
+hydra-core
+lightning
+fabric
+torchvision
+matplotlib

@@ -1,3 +1,8 @@
-*data/
-.vscode
-*models/
+denoising-diffusion-pytorch
+improved-diffusion
+MNISTDiffusion
+**/env
+**__pycache__
+**outputs
+**data
+**models
